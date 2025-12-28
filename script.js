@@ -14,7 +14,7 @@ nextButton.addEventListener('click', function(){
     index += 1
     video.src= movieList[index];
 
-    if (index === 4){
+    if (index === 3){
         index = -1;
     }
 });
