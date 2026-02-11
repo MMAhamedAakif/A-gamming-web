@@ -738,7 +738,7 @@ header {
         justify-content: center;
         gap: 10px;
     }
-}
+
 
 @media (max-width: 480px) {
     .head-left button {
