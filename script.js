@@ -38,7 +38,10 @@ nextButton.addEventListener('click', (event) => {
     changeHeroVideo();
 });
 
-heroSection.addEventListener('click', () => {
+heroSection.addEventListener('click', (event) => {
+    if (event.target === musicToggle || musicToggle.contains(event.target)) {
+        return;
+    }
     changeHeroVideo();
 });
 
@@ -49,7 +52,8 @@ const updateMusicButton = (isPlaying) => {
 
 let userPaused = false;
 
-const toggleMusic = async () => {
+const toggleMusic = async (event) => {
+    event.stopPropagation();
     if (heroMusic.paused) {
         try {
             await heroMusic.play();
