@@ -134,6 +134,25 @@ header {
     box-shadow: 0 0 15px #edff66;
 }
 
+.music-toggle {
+    position: absolute;
+    top: 95px;
+    right: 40px;
+    z-index: 2;
+    padding: 10px 18px;
+    border-radius: 20px;
+    border: 1px solid #edff66;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #edff66;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.music-toggle:hover {
+    background-color: #edff66;
+    color: #000000;
+}
+
 .gaming-text {
     font-size: 120px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
