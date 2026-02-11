@@ -5,6 +5,35 @@ const heroMusic = document.querySelector('#hero-music');
 const musicToggle = document.querySelector('.music-toggle');
 const BASE_VOLUME = 0.35;
 
+// Mobile Menu Toggle
+const mobileMenuBtn = document.querySelector('#mobile-menu-btn');
+const navMenu = document.querySelector('#nav-menu');
+const navClose = document.querySelector('.nav-close');
+const navOverlay = document.querySelector('#nav-overlay');
+
+const toggleMenu = () => {
+    navMenu.classList.toggle('active');
+    navOverlay.classList.toggle('active');
+    document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';
+};
+
+const closeMenu = () => {
+    navMenu.classList.remove('active');
+    navOverlay.classList.remove('active');
+    document.body.style.overflow = 'auto';
+};
+
+mobileMenuBtn.addEventListener('click', toggleMenu);
+navClose.addEventListener('click', closeMenu);
+navOverlay.addEventListener('click', closeMenu);
+
+// Close menu when clicking on nav items
+document.querySelectorAll('.nav-items a').forEach(link => {
+    link.addEventListener('click', () => {
+        closeMenu();
+    });
+});
+
 const movieList = ['videos/hero-1.mp4',
                    'videos/hero-2.mp4',
                    'videos/hero-3.mp4',
@@ -143,3 +172,37 @@ if (menuToggle && mobileMenu) {
         });
     });
 }
+
+// Scroll Animations using Intersection Observer
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            if (entry.target.classList.contains('about-section')) {
+                entry.target.classList.add('slide-up');
+            } else if (entry.target.classList.contains('info-card')) {
+                entry.target.classList.add('slide-up');
+            } else if (entry.target.classList.contains('card')) {
+                entry.target.classList.add('fade-in');
+            } else if (entry.target.classList.contains('contact-section')) {
+                entry.target.classList.add('slide-up');
+            } else if (entry.target.classList.contains('image-box')) {
+                entry.target.classList.add('slide-left');
+            } else if (entry.target.classList.contains('info-section')) {
+                entry.target.classList.add('slide-up');
+            }
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+// Apply animations to sections
+document.querySelectorAll('.about-section, .info-section, .card, .contact-section, .image-box').forEach(el => {
+    if (!el.classList.contains('slide-up') && !el.classList.contains('fade-in') && !el.classList.contains('slide-left')) {
+        observer.observe(el);
+    }
+});
