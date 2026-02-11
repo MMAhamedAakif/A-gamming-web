@@ -5,6 +5,37 @@ const heroMusic = document.querySelector('#hero-music');
 const musicToggle = document.querySelector('.music-toggle');
 const BASE_VOLUME = 0.35;
 
+// Mobile Menu Toggle
+const mobileMenuBtn = document.querySelector('#mobile-menu-btn');
+const navMenu = document.querySelector('#nav-menu');
+const navClose = document.querySelector('#nav-close-btn');
+const navOverlay = document.querySelector('#nav-overlay');
+
+const toggleMenu = () => {
+    navMenu.classList.toggle('active');
+    mobileMenuBtn.classList.toggle('active');
+    navOverlay.classList.toggle('active');
+    document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';
+};
+
+const closeMenu = () => {
+    navMenu.classList.remove('active');
+    mobileMenuBtn.classList.remove('active');
+    navOverlay.classList.remove('active');
+    document.body.style.overflow = 'auto';
+};
+
+mobileMenuBtn.addEventListener('click', toggleMenu);
+navClose.addEventListener('click', closeMenu);
+navOverlay.addEventListener('click', closeMenu);
+
+// Close menu when clicking on nav items
+document.querySelectorAll('.nav-items a').forEach(link => {
+    link.addEventListener('click', () => {
+        closeMenu();
+    });
+});
+
 
 
 const movieList = ['videos/hero-1.mp4',
@@ -180,5 +211,9 @@ document.querySelectorAll('.about-section, .info-section, .card, .contact-sectio
     }
 });
 
-
-
+// Menu close on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+        closeMenu();
+    }
+});
