@@ -8,7 +8,6 @@ const BASE_VOLUME = 0.35;
 // Mobile Menu Toggle
 const mobileMenuBtn = document.querySelector('#mobile-menu-btn');
 const navMenu = document.querySelector('#nav-menu');
-const navClose = document.querySelector('#nav-close-btn');
 const navOverlay = document.querySelector('#nav-overlay');
 
 const toggleMenu = () => {
@@ -26,7 +25,6 @@ const closeMenu = () => {
 };
 
 mobileMenuBtn.addEventListener('click', toggleMenu);
-navClose.addEventListener('click', closeMenu);
 navOverlay.addEventListener('click', closeMenu);
 
 // Close menu when clicking on nav items
