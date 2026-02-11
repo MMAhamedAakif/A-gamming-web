@@ -629,7 +629,7 @@ header {
     margin-bottom: 5%;
     max-width: 550px;
     text-align: center;
-    z-index: 1;
+    z-index: 999;
     background: linear-gradient(to right, #4acfee, #53f8c9, #02d79a, #6070fd, #007ed2, #0121f3, #62dcf8);
     background-size: 200%;
     background-clip: text;
