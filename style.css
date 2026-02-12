@@ -221,6 +221,7 @@ header {
     letter-spacing: 1px;
     position: relative;
     overflow: hidden;
+    transform: translateX(0);
 }
 
 .nav-items a::before {
@@ -236,14 +237,32 @@ header {
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.nav-items a::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, rgba(237, 255, 102, 0.1) 0%, transparent 100%);
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+}
+
 .nav-items a:hover::before {
     transform: scaleY(1);
+}
+
+.nav-items a:hover::after {
+    transform: translateX(0);
 }
 
 .nav-items a:hover {
     color: #edff66;
     padding-left: 25px;
     text-shadow: 0 0 10px rgba(237, 255, 102, 0.3);
+    transform: translateX(10px);
 }
 
 .nav-overlay {
@@ -989,7 +1008,7 @@ header {
     }
 
     .hero-info {
-        top: 80px;
+        top: 25px;
         left: 15px;
     }
 
@@ -1010,16 +1029,17 @@ header {
     }
 
     .music-toggle {
-        top: 85px;
+        top: 60px;
         right: 10px;
         padding: 7px 12px;
-        font-size: 11px;
+        font-size: 11px;    
     }
 
     .gaming-text {
         font-size: 42px;
+        font-weight: bold;
         right: 5px;
-        bottom: 15px;
+        bottom: 45px;
     }
 
     .next-btn {
