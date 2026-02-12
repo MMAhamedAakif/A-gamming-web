@@ -3,7 +3,7 @@ const heroSection = document.querySelector('.hero-section');
 const video = document.querySelector('.hero-video');
 const heroMusic = document.querySelector('#hero-music');
 const musicToggle = document.querySelector('.music-toggle');
-const BASE_VOLUME = 0.35;
+const BASE_VOLUME = 1;
 
 // Mobile Menu Toggle
 const mobileMenuBtn = document.querySelector('#mobile-menu-btn');
