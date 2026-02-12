@@ -68,9 +68,11 @@ header {
 
 .head-right {
     display: flex;
+    gap:20px;
 }
 
 .head-right a {
+    padding: 0%;
     text-decoration: none;
     padding-left: 25px;
     color: white;
@@ -284,7 +286,7 @@ header {
 .hero-info {
     z-index: 1;
     position: absolute;
-    top: 80px;
+    top: 10px;
     left: 50px;
 
 }
@@ -410,7 +412,7 @@ header {
     margin: 0;
     position: absolute;
     right: 20px;
-    bottom: 30px;
+    bottom: 60px;
 }
 
 .next-btn {
