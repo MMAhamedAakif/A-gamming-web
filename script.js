@@ -59,6 +59,13 @@ const changeHeroVideo = () => {
     const audioIndex = index % audioList.length;
     heroMusic.src = audioList[audioIndex];
 
+    // Explicitly play the audio when the source changes
+    if (!userPaused) {
+        heroMusic.play().catch(() => {
+            // Handle error if play fails
+        });
+    }
+
     if (index === 3){
         index = -1;
     }
@@ -189,7 +196,7 @@ const observer = new IntersectionObserver((entries) => {
             } else if (entry.target.classList.contains('info-card')) {
                 entry.target.classList.add('slide-up');
             } else if (entry.target.classList.contains('card')) {
-                entry.target.classList.add('fade-in');
+                entry.target.classList.add('slide-right');
             } else if (entry.target.classList.contains('contact-section')) {
                 entry.target.classList.add('slide-up');
             } else if (entry.target.classList.contains('image-box')) {

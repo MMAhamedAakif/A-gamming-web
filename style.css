@@ -211,11 +211,29 @@ header {
     transition: all 0.3s ease;
     display: block;
     letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-items a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background-color: #edff66;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-items a:hover::before {
+    transform: scaleY(1);
 }
 
 .nav-items a:hover {
     color: #edff66;
-    border-left-color: #edff66;
     padding-left: 25px;
     text-shadow: 0 0 10px rgba(237, 255, 102, 0.3);
 }
@@ -320,22 +338,22 @@ header {
 /* SCROLL ANIMATIONS //////////////////////////////////////////////////////////////////////////////////// */
 .fade-in {
     opacity: 0;
-    animation: fadeIn 0.8s ease forwards;
+    animation: fadeIn 1.2s ease forwards;
 }
 
 .slide-up {
     opacity: 0;
-    animation: slideUp 0.8s ease forwards;
+    animation: slideUp 1.2s ease forwards;
 }
 
 .slide-left {
     opacity: 0;
-    animation: slideLeft 0.8s ease forwards;
+    animation: slideLeft 1.2s ease forwards;
 }
 
 .slide-right {
     opacity: 0;
-    animation: slideRight 0.8s ease forwards;
+    animation: slideRight 1.2s ease forwards;
 }
 
 @keyframes fadeIn {
@@ -524,7 +542,34 @@ header {
     border: 1px solid gray;
     border-radius: 20px;
     transition: 0.5s;
+    border-left: 4px solid transparent;
 }
+
+.card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: linear-gradient(to right, #4acfee, #53f8c9, #02d79a, #6070fd, #007ed2, #0121f3, #62dcf8);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2;
+}
+
+.card.slide-right::before {
+    transform: scaleY(1);
+}
+
+/* Staggered animation delays for cards */
+.card:nth-child(1) { animation-delay: 0s; }
+.card:nth-child(2) { animation-delay: 0.1s; }
+.card:nth-child(3) { animation-delay: 0.2s; }
+.card:nth-child(4) { animation-delay: 0.3s; }
+.card:nth-child(5) { animation-delay: 0.4s; }
+.card:nth-child(6) { animation-delay: 0.5s; }
 
 .card h1 {
     position: absolute;
@@ -940,7 +985,7 @@ header {
     }
 
     .hero-info h1 {
-        font-size: 45px;
+        font-size: 55px;
         margin-top: 10px;
     }
 
@@ -951,7 +996,7 @@ header {
     }
 
     .hero-info button {
-        padding: 8px 25px;
+        padding: 8px 20px;
         font-size: 12px;
     }
 
