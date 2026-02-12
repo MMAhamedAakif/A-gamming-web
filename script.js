@@ -34,6 +34,19 @@ document.querySelectorAll('.nav-items a').forEach(link => {
     });
 });
 
+// Close menu when scrolling
+let lastScrollY = 0;
+window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+    
+    // Close menu only if scrolling down
+    if (currentScrollY > lastScrollY && navMenu.classList.contains('active')) {
+        closeMenu();
+    }
+    
+    lastScrollY = currentScrollY;
+}, { passive: true });
+
 
 
 const movieList = ['videos/hero-1.mp4',
