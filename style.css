@@ -810,15 +810,11 @@ header {
     }
 
     .info-card {
-        grid-template-columns: auto;
+        grid-template-columns: 1fr;
     }
 
-    .card:nth-child(1) {
-        grid-column: span 1;
-    }
-
-    .card:nth-child(2) {
-        grid-row: span 1;
+    .card {
+        width: 100%;
         height: 40vh;
     }
 
@@ -902,6 +898,7 @@ header {
     }
 
     .card {
+        width: 100%;
         height: 35vh;
     }
 
@@ -1095,7 +1092,21 @@ header {
         line-height: 20px;
     }
 
+    .info-card {
+        grid-template-columns: 1fr;
+    }
+
     .card {
+        width: 100%;
+        height: 30vh;
+    }
+
+    .card:nth-child(1) {
+        grid-column: span 1;
+    }
+
+    .card:nth-child(2) {
+        grid-row: span 1;
         height: 30vh;
     }
 
