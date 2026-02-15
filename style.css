@@ -537,7 +537,6 @@ header {
     margin: 0 auto;
     left: 0;
     align-items: center;
-    left: 10%;
 }
 
 .info-section h3 {
@@ -560,6 +559,7 @@ header {
     width: 100%;
     height: 100%;
     margin-top: 30px;
+    justify-content: center;
 }
 
 .card {
