@@ -776,7 +776,17 @@ header {
     margin: 0  10px;
     border-radius:50px ;
     border: 1px solid rgb(0,130,211);
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer a:hover {
+    transform: scale(1.3) translateY(-8px);
+    color: #edff66;
+    border-color: #edff66;
+    box-shadow: 0 0 15px rgba(237, 255, 102, 0.6);
 }
 
 /* RESPONSIVE DESIGN ////////////////////////////////////////////////////////////////////////////// */
