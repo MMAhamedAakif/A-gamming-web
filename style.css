@@ -468,9 +468,10 @@ header {
     align-items: center;
     color: white;
     background-image: url('img/stones.png');
-    background-size: cover;
+    background-size: 90%;
     background-position: center;
     background-repeat: no-repeat;
+    transition: background-size 0.5s ease-out;
 }
 
 .image-box {

@@ -47,6 +47,25 @@ window.addEventListener('scroll', () => {
     lastScrollY = currentScrollY;
 }, { passive: true });
 
+// About section background animation on scroll
+window.addEventListener('scroll', () => {
+    const aboutSection = document.querySelector('.about-section');
+    if (aboutSection) {
+        const rect = aboutSection.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        
+        // Check if section is in viewport
+        if (rect.top < windowHeight && rect.bottom > 0) {
+            // Calculate progress (0 to 1) as user scrolls through the section
+            const progress = Math.max(0, Math.min(1, (windowHeight - rect.top) / (windowHeight + rect.height)));
+            
+            // Scale from 120% to 60% based on scroll progress
+            const scale = 100 - (progress * 60);
+            aboutSection.style.backgroundSize = `${scale}%`;
+        }
+    }
+}, { passive: true });
+
 
 
 const movieList = ['videos/hero-1.mp4',
