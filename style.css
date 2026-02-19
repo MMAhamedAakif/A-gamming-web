@@ -467,6 +467,10 @@ header {
     flex-direction: column;
     align-items: center;
     color: white;
+    background-image: url('img/stones.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .image-box {
