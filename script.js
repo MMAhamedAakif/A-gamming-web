@@ -47,9 +47,11 @@ window.addEventListener('scroll', () => {
     lastScrollY = currentScrollY;
 }, { passive: true });
 
-// About section background animation on scroll
+// About section background and image animation on scroll
 window.addEventListener('scroll', () => {
     const aboutSection = document.querySelector('.about-section');
+    const imageBox = document.querySelector('.image-box');
+    
     if (aboutSection) {
         const rect = aboutSection.getBoundingClientRect();
         const windowHeight = window.innerHeight;
@@ -59,9 +61,26 @@ window.addEventListener('scroll', () => {
             // Calculate progress (0 to 1) as user scrolls through the section
             const progress = Math.max(0, Math.min(1, (windowHeight - rect.top) / (windowHeight + rect.height)));
             
-            // Scale from 120% to 60% based on scroll progress
-            const scale = 100 - (progress * 60);
-            aboutSection.style.backgroundSize = `${scale}%`;
+            // Scale background from 100% to 50% based on scroll progress
+            const scale = 100 - (progress * 50);
+            aboutSection.style.setProperty('--bg-size', `${scale}%`);
+            
+            // Animate image-box width from 100vw to 360px and height from 100vh to 510px
+            if (imageBox) {
+                const startWidth = window.innerWidth;
+                const endWidth = 360;
+                const currentWidth = startWidth - (progress * (startWidth - endWidth));
+                imageBox.style.width = `${Math.max(endWidth, currentWidth)}px`;
+                
+                const startHeight = window.innerHeight;
+                const endHeight = 510;
+                const currentHeight = startHeight - (progress * (startHeight - endHeight));
+                imageBox.style.height = `${Math.max(endHeight, currentHeight)}px`;
+                
+                // Animate border radius from 0 to 50px
+                const borderRadius = progress * 50;
+                imageBox.style.borderRadius = `${borderRadius}px`;
+            }
         }
     }
 }, { passive: true });
