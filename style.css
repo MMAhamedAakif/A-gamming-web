@@ -540,8 +540,14 @@ header {
 }
 
 .info-section h3 {
+    margin-top: 50px;
     margin-bottom: 0;
 
+}
+
+.info-section h1 {
+    margin: 20px 0;
+    line-height: 1.5;
 }
 
 .info-section p {
