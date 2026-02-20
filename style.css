@@ -27,7 +27,7 @@ body {
 
 header {
 
-    
+
     position: sticky;
     top: 0;
     right: 0;
@@ -536,7 +536,7 @@ header {
 
 @keyframes animate {
     to {
-        background-position: 200%;
+        background-position: 200;
     }
 
 }
