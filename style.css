@@ -1242,3 +1242,10 @@ header {
     }
 }
 
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+
+    .head-right {
+        display: none;   /* Hide desktop menu */
+    }
+}
