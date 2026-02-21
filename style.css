@@ -780,6 +780,7 @@ header {
     }
 
     .card p {
+        font-size: 10px;
         max-width: 90%;
     }
 
