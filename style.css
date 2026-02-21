@@ -726,7 +726,11 @@ header {
         bottom: 15px;
     }
 
-
+    .next-btn {
+        width: 100px;
+        height: 100px;
+        font-size: 14px;
+    }
 
     .about-section {
         margin-top: 80px;
